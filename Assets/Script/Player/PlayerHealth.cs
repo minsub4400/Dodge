@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Die();
+        }
+    }
+
     public void Die()
     {
         // 게임 오브젝트 비활성화

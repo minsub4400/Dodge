@@ -10,17 +10,34 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody myRigid;
     // 이동 속도
     public float speed;
+
+    public bool userSpeed;
+
     void Start()
     {
         myInput = GetComponent<PlayerInput>();
         myRigid = GetComponent<Rigidbody>();
         // 자신이 포함되어있는 컴퍼넌트 중에 PlayerInput를 찾아서 input에 넣는다.
         speed = 8.0f;
+        userSpeed = false;
     }
 
     void Update()
     {
-        if (myInput.Up == true)
+        float xSpeed = myInput.X * speed;
+        float zSpeed = myInput.Z * speed;
+
+        if (userSpeed)
+        {
+            // 어느 방향으로 속도를 줄 것인가
+            myRigid.velocity = new Vector3(xSpeed, 0f, zSpeed);
+        }
+        else
+        {
+            myRigid.AddForce(xSpeed, 0f, zSpeed);
+        }
+
+        /*if (myInput.Up == true)
         {
             myRigid.AddForce(0f, 0f, speed);
         }
@@ -35,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (myInput.Right == true)
         {
             myRigid.AddForce(speed, 0f, 0f);
-        }
+        }*/
     }
 
 } // 클래스 끝.
