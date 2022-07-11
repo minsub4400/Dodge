@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         myRigid = GetComponent<Rigidbody>();
         // 자신이 포함되어있는 컴퍼넌트 중에 PlayerInput를 찾아서 input에 넣는다.
         speed = 8.0f;
-        userSpeed = false;
+        userSpeed = true;
     }
 
     void Update()
