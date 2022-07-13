@@ -5,15 +5,6 @@ using UnityEngine;
 public class Sensor : MonoBehaviour
 {
     public Pillar pillar;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
